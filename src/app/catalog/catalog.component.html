@@ -1,15 +1,5 @@
 <div class="container" fxLayout="column" fxLayoutGap="10px">
 
-  <!-- <mat-list fxFlex>
-    <mat-list-item *ngFor="let item of items">
-      <img matListAvatar src={{item.image}} alt={{item.name}}>
-      <h2 matLine>{{item.name}}</h2>
-      <p matLine>
-        <span>{{item.description}}</span>
-      </p>
-    </mat-list-item>
-  </mat-list> -->
-
   <div fxFlex fxLayoutAlign="center">
     <div>
       <h1>{{titleCatalog}}</h1>
@@ -28,36 +18,26 @@
     </mat-grid-list>
   </div>
 
-  <!-- <div fxFlex>
-  <mat-grid-list cols="3" rowHeight="200px">
-    <mat-grid-tile *ngFor="let item of items">
-      <img height="200px " src={{item.image}} alt={{item.name}}>
-      <mat-grid-tile-footer>
-        <h2 matLine>{{item.name | uppercase}}</h2>
-        <p matLine>{{item.description}}</p>
-      </mat-grid-tile-footer>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div> -->
-
-  <!-- <div fxFlex *ngIf="selectedItem">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <h2 matLine>{{selectedItem.name |uppercase}}</h2>
-        </mat-card-title>
-      </mat-card-header>
-      <img mat-card-image src={{selectedItem.image}} alt={{selectedItem.name}}>
-      <mat-card-content>
-        <p>{{selectedItem.description}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>Like </button>
-        <button mat-button>Share</button>
-      </mat-card-actions>
-    </mat-card>
-  </div> -->
-
   <app-itemdetail [item]="selectedItem"></app-itemdetail>
+
+  <mat-drawer-container class="category" autosize>
+    <mat-drawer class="category-width" mode="side" opened>
+      <mat-grid-tile-footer>
+        <h2 fxFlex fxLayoutAlign="center" matLine>{{titleCategory}}</h2>
+
+      </mat-grid-tile-footer>
+      <div class="category-wrapper">
+        <div *ngFor="let item of sortBy2" (click)="onSelect(item)">
+          <button type="button" mat-button >{{item.category}} </button>
+        </div>
+        <tr *ngFor="let item of sortBy">
+          <td>{{item[0]}}</td>
+          <td>{{item[1]}}</td>
+        </tr>
+      </div>
+    </mat-drawer>
+  </mat-drawer-container>
+
+
 
 </div>

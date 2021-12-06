@@ -73,7 +73,7 @@ export const ITEMS: Item[] = [
     id: '3',
     name: 'Item B-2',
     image: 'assets/images/B/B-2.png',
-    category: 'B',
+    category: 'A',
     featured: true,
     label: 'L-3',
     price: '6.99',

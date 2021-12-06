@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from '../shared/item';
-
 // const ITEM = [
 //   {
 //     id: '0',
@@ -186,6 +185,10 @@ export class ItemdetailComponent implements OnInit {
   item: Item = null as any;
 
   constructor() {}
-  
+
   ngOnInit(): void {}
+
+  
 }
+
+

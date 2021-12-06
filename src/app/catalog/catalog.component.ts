@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../shared/item';
 import { ITEMS } from '../shared/items';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-catalog',
@@ -10,9 +11,22 @@ import { ITEMS } from '../shared/items';
 export class CatalogComponent implements OnInit {
   titleCatalog = 'Catalog';
 
+  titleCategory = 'Category';
+
   items = ITEMS;
 
   selectedItem: Item = null as any;
+
+  showFiller = false;
+
+  sortBy1 = _.sortBy(this.items, ['category']);
+
+  sortBy2 = _.uniqBy(this.sortBy1, 'category');
+
+  sortBy: Item[] = _.groupBy(
+    _.sortBy(this.items, ['category']),
+    'category'
+  ) as any;
 
   // selectedItem: Item = this.items[0];
 
@@ -71,10 +85,23 @@ export class CatalogComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    const sortBy1 = _.sortBy(this.items, ['category']);
+    console.log(sortBy1);
+
+    const sortBy2 = _.uniqBy(sortBy1, 'category');
+    console.log(sortBy2);
+
+    const groupBy2 = _.groupBy(sortBy1, 'category');
+    console.log(groupBy2);
+  }
 
   onSelect(item: Item) {
     this.selectedItem = item;
+  }
+
+  onSelectCategory(item: Item[]) {
+    this.sortBy = item;
   }
 
   // Для адаптиву cols(tsconfig.json додано рядок "noImplicitAny": false,)
