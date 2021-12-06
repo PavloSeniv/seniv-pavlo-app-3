@@ -24,20 +24,16 @@
     <mat-drawer class="category-width" mode="side" opened>
       <mat-grid-tile-footer>
         <h2 fxFlex fxLayoutAlign="center" matLine>{{titleCategory}}</h2>
-
       </mat-grid-tile-footer>
+
       <div class="category-wrapper">
-        <div *ngFor="let item of sortBy2" (click)="onSelect(item)">
+        <div *ngFor="let item of sortByUniqCategory" (click)="onSelect(item)">
           <button type="button" mat-button >{{item.category}} </button>
         </div>
-        <tr *ngFor="let item of sortBy">
-          <td>{{item[0]}}</td>
-          <td>{{item[1]}}</td>
-        </tr>
       </div>
+      
     </mat-drawer>
   </mat-drawer-container>
-
 
 
 </div>

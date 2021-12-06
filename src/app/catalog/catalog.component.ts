@@ -17,17 +17,11 @@ export class CatalogComponent implements OnInit {
 
   selectedItem: Item = null as any;
 
-  showFiller = false;
+  sortByAllCategory = _.sortBy(this.items, ['category']);
 
-  sortBy1 = _.sortBy(this.items, ['category']);
+  sortByUniqCategory = _.uniqBy(this.sortByAllCategory, 'category');
 
-  sortBy2 = _.uniqBy(this.sortBy1, 'category');
-
-  sortBy: Item[] = _.groupBy(
-    _.sortBy(this.items, ['category']),
-    'category'
-  ) as any;
-
+  groupBy = _.groupBy(this.sortByAllCategory, 'category');
   // selectedItem: Item = this.items[0];
 
   // items: Item[] = [
@@ -100,8 +94,8 @@ export class CatalogComponent implements OnInit {
     this.selectedItem = item;
   }
 
-  onSelectCategory(item: Item[]) {
-    this.sortBy = item;
+  onSelectCategory(item: Item) {
+    this.selectedItem = item;
   }
 
   // Для адаптиву cols(tsconfig.json додано рядок "noImplicitAny": false,)
