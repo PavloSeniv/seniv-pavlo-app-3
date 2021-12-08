@@ -1,0 +1,25 @@
+<div fxLayoutAlign="center">
+  <div>
+    <h1 class="catalog-title">{{catalogTitle}}</h1>
+  </div>
+</div>
+
+  <mat-grid-list cols="{{colAadaptive}}" rowHeight="2:3" (window:resize)="onResize($event)">
+
+  <mat-grid-tile *ngFor="let dish of this.dishes">
+    <mat-card class="example-card">
+      <mat-card-title-group>
+        <mat-card-title>{{dish.name}}</mat-card-title>
+        <mat-card-subtitle>{{dish.category}}</mat-card-subtitle>
+        <img mat-card-xl-image src="{{dish.image}}" alt="Photo of a Shiba Inu">
+      </mat-card-title-group>
+      <mat-card-content class="text-justify">
+        <p>{{dish.description}}</p>
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center center">
+        <button mat-button color="accent">Price - {{dish.price}} $</button>
+        <button mat-button color="warn">Weight - {{dish.weight}} gr</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

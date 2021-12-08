@@ -1,10 +1,7 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
-// "noImplicitAny": false, видалити на крайній випадок
-
 {
   "compileOnSave": false,
   "compilerOptions": {
-
     "noImplicitAny": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -26,6 +23,7 @@
     ]
   },
   "angularCompilerOptions": {
+    "strictPropertyInitialization": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

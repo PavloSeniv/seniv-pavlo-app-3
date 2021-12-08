@@ -1,0 +1,9 @@
+<mat-grid-list cols="{{colAadaptive}}" rowHeight="1.5:1" (window:resize)="onResize($event)">
+
+  <mat-grid-tile *ngFor="let item of catalog">
+    <img src={{item.image}}><img>
+    <mat-grid-tile-footer>{{item.name}}</mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<app-itemdetail></app-itemdetail>

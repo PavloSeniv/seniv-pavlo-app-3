@@ -1,5 +1,25 @@
-<mat-toolbar color="primary">
- <span>{{title}}</span>
-</mat-toolbar> 
+<ngx-spinner bdColor="rgba(123,31,162,0.73)" size="medium" color="#69f0ae" type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
 
-<app-catalog> </app-catalog>
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+</mat-toolbar>
+
+ 
+<mat-drawer-container class="example-container">
+  
+  <mat-drawer mode="side" opened>
+    <mat-list>
+      <div *ngFor="let group of groups" class="list-item" (click)="filterDishes(group.dishes)">
+        <mat-list-item>{{group.category}}</mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <app-dishes [dishes]="this.filtredDishes"></app-dishes>
+  </mat-drawer-content>
+  
+</mat-drawer-container>
